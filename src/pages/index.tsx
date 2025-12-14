@@ -29,11 +29,6 @@ function HomepageHeader() {
                     to="/docs">
                     Start Learning
                   </Link>
-                  <Link
-                    className="button button--secondary button--lg"
-                    to="/docs/intro">
-                    Explore Curriculum
-                  </Link>
                 </div>
               </div>
               <div className={clsx(styles.heroVisual, styles.animateSlideInRight)}>
@@ -235,11 +230,6 @@ function CallToAction() {
                 className="button button--primary button--lg"
                 to="/docs">
                 Begin Your Learning Path
-              </Link>
-              <Link
-                className="button button--secondary button--lg"
-                to="/docs/intro">
-                View Full Curriculum
               </Link>
             </div>
           </div>

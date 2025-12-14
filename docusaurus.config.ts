@@ -15,7 +15,7 @@ const config: Config = {
   baseUrl: '/physical-ai-textbook/',
 
   organizationName: 'Sheikh-Ubaid-Raza',
-  projectName: 'physical-ai-and-humanoid-robotics',
+  projectName: 'physical-ai-textbook',
 
   markdown: {
   hooks: {
@@ -67,9 +67,10 @@ const config: Config = {
           sidebarId: 'tutorialSidebar',
           position: 'left',
           label: 'Book',
+          to:'/docs'
         },
         {
-          href: 'https://github.com/Sheikh-Ubaid-Raza/Physical-AI-and-Humanoid-Robotics',
+          href: 'https://github.com/Sheikh-Ubaid-Raza/physical-ai-textbook',
           label: 'GitHub',
           position: 'right',
         },
@@ -120,7 +121,7 @@ const config: Config = {
           ],
         },
         {
-          title: 'Community',
+          title: 'Company',
           items: [
             {
               label: 'AgentiousAI Website',
