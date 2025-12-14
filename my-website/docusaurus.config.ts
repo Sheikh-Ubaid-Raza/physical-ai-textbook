@@ -15,7 +15,7 @@ const config: Config = {
   baseUrl: '/physical-ai-textbook/',
 
   organizationName: 'Sheikh-Ubaid-Raza',
-  projectName: 'physical-ai-and-humanoid-robotics',
+  projectName: 'physical-ai-textbook',
 
   markdown: {
   hooks: {
@@ -70,7 +70,7 @@ const config: Config = {
           to:'/docs'
         },
         {
-          href: 'https://github.com/Sheikh-Ubaid-Raza/Physical-AI-Textbook',
+          href: 'https://github.com/Sheikh-Ubaid-Raza/physical-ai-textbook',
           label: 'GitHub',
           position: 'right',
         },
