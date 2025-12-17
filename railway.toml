@@ -1,0 +1,24 @@
+[build]
+builder = "nixpacks"
+
+[nixpacks]
+phases = '''
+{
+  "setup": {
+    "commands": [
+      "cd backend",
+      "python -m venv venv",
+      "source venv/bin/activate"
+    ]
+  },
+  "build": {
+    "commands": [
+      "cd backend",
+      "pip install -r requirements.txt"
+    ]
+  }
+}
+'''
+
+[startup]
+command = "cd backend && python main.py"
