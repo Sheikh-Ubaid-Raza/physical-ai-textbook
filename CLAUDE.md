@@ -211,6 +211,9 @@ See `.specify/memory/constitution.md` for code quality, testing, performance, se
 
 ## Active Technologies
 - TypeScript 5.0+, Node.js 18+ + Docusaurus v3, React 18, Node.js ecosystem (001-docusaurus-foundation)
+- Python 3.11, TypeScript 5.0+, Node.js 18+ + FastAPI, uvicorn, qdrant-client, sqlalchemy, openai, google-generativeai, React 18, Docusaurus v3 (004-rag-chatbot)
+- Neon Serverless Postgres (Relational), Qdrant Cloud (Vector) (004-rag-chatbot)
+- Node.js 18+, Python 3.11, TypeScript 5.0+, React 18 + better-auth, hono, FastAPI, OpenAI Agents SDK, OpenRouter API, pg, @better-auth/react (005-auth-personalization-translation)
 
 ## Recent Changes
 - 001-docusaurus-foundation: Added TypeScript 5.0+, Node.js 18+ + Docusaurus v3, React 18, Node.js ecosystem

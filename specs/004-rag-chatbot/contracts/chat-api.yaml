@@ -1,0 +1,82 @@
+# OpenAPI Specification: RAG Chatbot API
+
+## /api/chat
+### POST
+**Summary**: Process user query and return AI response based on textbook content
+
+**Description**: This endpoint accepts a user query and optional selected text context, retrieves relevant information from the vector database, and returns an AI-generated response based on the textbook content.
+
+**Request Body**:
+```json
+{
+  "message": "string (required) - The user's query message",
+  "sessionId": "string (optional) - Unique session identifier for conversation context",
+  "selectedText": "string (optional) - Text selected by the user in the textbook",
+  "context": {
+    "sourcePage": "string (optional) - The page/chapter where query originated"
+  }
+}
+```
+
+**Response**:
+- **200 OK**:
+```json
+{
+  "response": "string - The AI-generated response",
+  "sessionId": "string - The session identifier",
+  "sources": [
+    {
+      "title": "string - Title of the source document",
+      "path": "string - Path to the source document",
+      "relevance": "number - Relevance score (0.0-1.0)"
+    }
+  ],
+  "timestamp": "string - ISO 8601 timestamp"
+}
+```
+
+- **400 Bad Request**:
+```json
+{
+  "error": "string - Error message describing the issue"
+}
+```
+
+- **500 Internal Server Error**:
+```json
+{
+  "error": "string - Error message describing the server issue"
+}
+```
+
+**Headers**:
+- Content-Type: application/json
+- Accept: application/json
+
+## /api/ingest
+### POST
+**Summary**: Ingest textbook content into the vector database
+
+**Description**: This endpoint processes all markdown files in the /docs directory, generates embeddings using Gemini, and stores them in the Qdrant vector database.
+
+**Request Body**:
+```json
+{
+  "force": "boolean (optional) - Whether to force re-ingestion of all content"
+}
+```
+
+**Response**:
+- **200 OK**:
+```json
+{
+  "status": "string - Status of the ingestion process",
+  "processedFiles": "number - Count of files processed",
+  "processedChunks": "number - Count of content chunks created",
+  "timestamp": "string - ISO 8601 timestamp"
+}
+```
+
+**Headers**:
+- Content-Type: application/json
+- Accept: application/json
