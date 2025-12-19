@@ -1,5 +1,7 @@
 # Dependencies
 /node_modules
+/.venv
+_pycache_
 
 # Production
 /build

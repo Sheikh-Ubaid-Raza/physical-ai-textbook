@@ -1,0 +1,10 @@
+README.md
+setup.py
+physical_ai_textbook_backend.egg-info/PKG-INFO
+physical_ai_textbook_backend.egg-info/SOURCES.txt
+physical_ai_textbook_backend.egg-info/dependency_links.txt
+physical_ai_textbook_backend.egg-info/requires.txt
+physical_ai_textbook_backend.egg-info/top_level.txt
+tests/test_auth.py
+tests/test_personalization.py
+tests/test_translation.py

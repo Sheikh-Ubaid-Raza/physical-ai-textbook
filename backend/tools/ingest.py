@@ -1,9 +1,9 @@
 import os
 import glob
 from typing import List, Dict, Any
-from services.embedding_service import embedding_service
-from services.vector_service import vector_service
-from config.settings import settings
+from backend.services.embedding_service import embedding_service
+from backend.services.vector_service import vector_service
+from backend.config.settings import settings
 import logging
 import hashlib
 from pathlib import Path

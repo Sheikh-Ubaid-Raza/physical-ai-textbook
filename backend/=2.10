@@ -1,0 +1,68 @@
+Collecting fastapi
+  Downloading fastapi-0.125.0-py3-none-any.whl.metadata (30 kB)
+Collecting uvicorn
+  Downloading uvicorn-0.38.0-py3-none-any.whl.metadata (6.8 kB)
+Collecting sqlalchemy
+  Downloading sqlalchemy-2.0.45-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (9.5 kB)
+Collecting python-dotenv
+  Using cached python_dotenv-1.2.1-py3-none-any.whl.metadata (25 kB)
+Collecting slowapi
+  Using cached slowapi-0.1.9-py3-none-any.whl.metadata (3.0 kB)
+Collecting pydantic
+  Using cached pydantic-2.12.5-py3-none-any.whl.metadata (90 kB)
+Collecting pydantic-settings
+  Downloading pydantic_settings-2.12.0-py3-none-any.whl.metadata (3.4 kB)
+Collecting starlette<0.51.0,>=0.40.0 (from fastapi)
+  Downloading starlette-0.50.0-py3-none-any.whl.metadata (6.3 kB)
+Requirement already satisfied: typing-extensions>=4.8.0 in /usr/lib/python3/dist-packages (from fastapi) (4.10.0)
+Collecting annotated-doc>=0.0.2 (from fastapi)
+  Downloading annotated_doc-0.0.4-py3-none-any.whl.metadata (6.6 kB)
+Requirement already satisfied: click>=7.0 in /usr/lib/python3/dist-packages (from uvicorn) (8.1.6)
+Collecting h11>=0.8 (from uvicorn)
+  Using cached h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+Collecting greenlet>=1 (from sqlalchemy)
+  Using cached greenlet-3.3.0-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (4.1 kB)
+Collecting limits>=2.3 (from slowapi)
+  Using cached limits-5.6.0-py3-none-any.whl.metadata (10 kB)
+Collecting annotated-types>=0.6.0 (from pydantic)
+  Using cached annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+Collecting pydantic-core==2.41.5 (from pydantic)
+  Using cached pydantic_core-2.41.5-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.3 kB)
+Collecting typing-extensions>=4.8.0 (from fastapi)
+  Using cached typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting typing-inspection>=0.4.2 (from pydantic)
+  Using cached typing_inspection-0.4.2-py3-none-any.whl.metadata (2.6 kB)
+Collecting deprecated>=1.2 (from limits>=2.3->slowapi)
+  Using cached deprecated-1.3.1-py2.py3-none-any.whl.metadata (5.9 kB)
+Requirement already satisfied: packaging>=21 in /usr/lib/python3/dist-packages (from limits>=2.3->slowapi) (24.0)
+Collecting anyio<5,>=3.6.2 (from starlette<0.51.0,>=0.40.0->fastapi)
+  Downloading anyio-4.12.0-py3-none-any.whl.metadata (4.3 kB)
+Requirement already satisfied: idna>=2.8 in /usr/lib/python3/dist-packages (from anyio<5,>=3.6.2->starlette<0.51.0,>=0.40.0->fastapi) (3.6)
+Requirement already satisfied: wrapt<3,>=1.10 in /usr/local/lib/python3.12/dist-packages (from deprecated>=1.2->limits>=2.3->slowapi) (2.0.1)
+Downloading fastapi-0.125.0-py3-none-any.whl (112 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 112.9/112.9 kB 1.6 MB/s eta 0:00:00
+Downloading uvicorn-0.38.0-py3-none-any.whl (68 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 68.1/68.1 kB 1.4 MB/s eta 0:00:00
+Downloading sqlalchemy-2.0.45-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (3.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 1.7 MB/s eta 0:00:00
+Using cached python_dotenv-1.2.1-py3-none-any.whl (21 kB)
+Using cached slowapi-0.1.9-py3-none-any.whl (14 kB)
+Using cached pydantic-2.12.5-py3-none-any.whl (463 kB)
+Using cached pydantic_core-2.41.5-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.1 MB)
+Downloading pydantic_settings-2.12.0-py3-none-any.whl (51 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 51.9/51.9 kB 973.7 kB/s eta 0:00:00
+Downloading annotated_doc-0.0.4-py3-none-any.whl (5.3 kB)
+Using cached annotated_types-0.7.0-py3-none-any.whl (13 kB)
+Using cached greenlet-3.3.0-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (609 kB)
+Using cached h11-0.16.0-py3-none-any.whl (37 kB)
+Using cached limits-5.6.0-py3-none-any.whl (60 kB)
+Downloading starlette-0.50.0-py3-none-any.whl (74 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 74.0/74.0 kB 1.4 MB/s eta 0:00:00
+Using cached typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+Using cached typing_inspection-0.4.2-py3-none-any.whl (14 kB)
+Downloading anyio-4.12.0-py3-none-any.whl (113 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 113.4/113.4 kB 1.5 MB/s eta 0:00:00
+Using cached deprecated-1.3.1-py2.py3-none-any.whl (11 kB)
+Installing collected packages: typing-extensions, python-dotenv, h11, greenlet, deprecated, annotated-types, annotated-doc, uvicorn, typing-inspection, sqlalchemy, pydantic-core, limits, anyio, starlette, slowapi, pydantic, pydantic-settings, fastapi
+  Attempting uninstall: typing-extensions
+    Found existing installation: typing_extensions 4.10.0

@@ -1,7 +1,7 @@
 from qdrant_client import QdrantClient
 from qdrant_client.http import models
 from typing import List, Dict, Any, Optional
-from config.settings import settings
+from backend.config.settings import settings
 import logging
 import uuid
 
@@ -60,7 +60,7 @@ class VectorService:
                 ids = [str(uuid.uuid4()) for _ in texts]
 
             # Import the embedding service to generate actual embeddings
-            from services.embedding_service import embedding_service
+            from backend.services.embedding_service import embedding_service
 
             # Generate embeddings for the texts using the embedding service
             points = []

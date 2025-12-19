@@ -14,7 +14,8 @@ class Settings(BaseSettings):
     context7_api_key: Optional[str] = os.getenv("CONTEXT7_API_KEY")
 
     # Database URLs
-    neon_database_url: str = os.getenv("NEON_DATABASE_URL", "postgresql://localhost/defaultdb")
+    neon_database_url: str = os.getenv("DATABASE_URL", "postgresql://localhost/defaultdb")
+    database_url: str = os.getenv("DATABASE_URL", "postgresql://localhost/defaultdb")  # From .env file
     qdrant_url: Optional[str] = os.getenv("QDRANT_URL")
     qdrant_api_key: Optional[str] = os.getenv("QDRANT_API_KEY")
 
@@ -28,6 +29,11 @@ class Settings(BaseSettings):
 
     # Security
     jwt_secret_key: Optional[str] = os.getenv("JWT_SECRET_KEY")
+    auth_secret: str = os.getenv("AUTH_SECRET", "your_auth_secret_key")  # From .env file
+
+    # Port Settings
+    node_auth_port: int = int(os.getenv("NODE_AUTH_PORT", "3001"))  # From .env file
+    python_backend_port: int = int(os.getenv("PYTHON_BACKEND_PORT", "8000"))  # From .env file
 
     # Qdrant Configuration
     qdrant_collection_name: str = "textbook_chunks"

@@ -3,7 +3,7 @@
 Script to initialize the database tables for the RAG Chatbot
 """
 
-from config.database import engine, Base
+from backend.config.database import engine, Base
 import logging
 
 # Configure logging
@@ -17,8 +17,12 @@ def init_db():
 
         # Import all models to ensure they're registered with SQLAlchemy
         # This ensures all tables are created
-        from models.chat import ChatSession, Message
-        from models.document import VectorDocument, TextbookContent
+        from backend.models.chat import ChatSession, Message
+        from backend.models.document import VectorDocument, TextbookContent
+        from backend.models.user import User
+        from backend.models.session import UserSession
+        from backend.models.personalized_content import PersonalizedContent
+        from backend.models.translated_content import TranslatedContent
 
         # Create all tables
         Base.metadata.create_all(bind=engine)
