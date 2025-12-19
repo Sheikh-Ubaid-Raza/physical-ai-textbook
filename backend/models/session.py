@@ -1,9 +1,7 @@
 from sqlalchemy import Column, String, DateTime, ForeignKey
-from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.sql import func
 import uuid
-
-Base = declarative_base()
+from backend.config.database import Base
 
 class UserSession(Base):
     __tablename__ = 'user_sessions'

@@ -1,10 +1,10 @@
 from typing import List, Dict, Any, Optional
-from models.chat import ChatSession, Message
-from models.document import VectorDocument
-from services.embedding_service import embedding_service
-from services.vector_service import vector_service
-from config.database import SessionLocal
-from config.settings import settings
+from backend.models.chat import ChatSession, Message
+from backend.models.document import VectorDocument
+from backend.services.embedding_service import embedding_service
+from backend.services.vector_service import vector_service
+from backend.config.database import SessionLocal
+from backend.config.settings import settings
 from sqlalchemy.orm import Session
 import logging
 from datetime import datetime

@@ -1,0 +1,27 @@
+.navbar-auth-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+  font-size: 1.2rem;
+  color: var(--ifm-navbar-link-color);
+}
+
+.navbar-auth-button:hover {
+  background-color: var(--ifm-color-emphasis-200);
+  text-decoration: none;
+}
+
+.navbar-auth-button.logout {
+  color: var(--ifm-navbar-link-color);
+}
+
+.navbar-auth-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

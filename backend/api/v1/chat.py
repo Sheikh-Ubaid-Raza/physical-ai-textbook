@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, Request
 from sqlalchemy.orm import Session
-from config.database import get_db
-from services.chat_service import chat_service
+from backend.config.database import get_db
+from backend.services.chat_service import chat_service
 from typing import Optional
 import logging
 from slowapi import Limiter

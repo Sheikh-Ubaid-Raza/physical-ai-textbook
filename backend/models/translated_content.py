@@ -1,10 +1,8 @@
 from sqlalchemy import Column, String, Text, DateTime, ForeignKey
-from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.sql import func
 import uuid
 import json
-
-Base = declarative_base()
+from backend.config.database import Base
 
 class TranslatedContent(Base):
     __tablename__ = 'translated_content'

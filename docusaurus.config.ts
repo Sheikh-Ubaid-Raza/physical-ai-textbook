@@ -23,6 +23,7 @@ const config: Config = {
    },
  },
 
+
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -64,6 +65,10 @@ const config: Config = {
           label: 'Book',
           to:'/docs'
         },
+        // {
+        //   type: 'custom-CustomNavbarItem',
+        //   position: 'right',
+        // },
         {
           href: 'https://github.com/Sheikh-Ubaid-Raza/physical-ai-textbook',
           label: 'GitHub',

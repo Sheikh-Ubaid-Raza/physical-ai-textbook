@@ -1,0 +1,32 @@
+{
+  "name": "auth-service",
+  "version": "1.0.0",
+  "description": "Authentication service for Physical AI Textbook project",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "tsx src/index.ts",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.19.7",
+    "bcrypt": "^5.1.1",
+    "better-auth": "^0.5.1",
+    "dotenv": "^16.3.1",
+    "hono": "^4.6.3",
+    "pg": "^8.11.3",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.1",
+    "@types/node": "^20.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0"
+  },
+  "keywords": [
+    "authentication",
+    "physical-ai-textbook"
+  ],
+  "author": "Physical AI Textbook Team",
+  "license": "MIT"
+}

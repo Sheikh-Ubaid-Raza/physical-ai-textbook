@@ -1,9 +1,16 @@
 import openai
 import os
-from typing import Dict, Any, List
+from typing import Dict, Any, List, AsyncGenerator
 from dotenv import load_dotenv
+import asyncio
+from slowapi import Limiter, _rate_limit_exceeded_handler
+from slowapi.util import get_remote_address
+from fastapi import Request
 
 load_dotenv()
+
+# Initialize rate limiter
+limiter = Limiter(key_func=get_remote_address)
 
 class AIService:
     def __init__(self):
@@ -26,6 +33,28 @@ class AIService:
         """Call OpenRouter API with specified parameters"""
         try:
             response = openai.chat.completions.create(
+                model=model,
+                messages=messages,
+                temperature=temperature,
+                max_tokens=max_tokens,
+                stream=stream
+            )
+            return response
+        except Exception as e:
+            print(f"Error calling OpenRouter API: {str(e)}")
+            raise e
+
+    async def call_openrouter_api_async(
+        self,
+        model: str,
+        messages: List[Dict[str, str]],
+        temperature: float = 0.7,
+        max_tokens: int = 1000,
+        stream: bool = False
+    ) -> Any:
+        """Async version of call_openrouter_api"""
+        try:
+            response = await openai.chat.completions.create(
                 model=model,
                 messages=messages,
                 temperature=temperature,
@@ -125,3 +154,78 @@ class AIService:
         )
 
         return response.choices[0].message.content
+
+    async def generate_response(self, prompt: str, max_tokens: int = 1500) -> str:
+        """Generate response using OpenRouter API with fallback"""
+        messages = [
+            {"role": "system", "content": "You are an expert assistant that helps with content adaptation and translation. Provide accurate, helpful responses while maintaining the quality and integrity of the original content."},
+            {"role": "user", "content": prompt}
+        ]
+
+        try:
+            response = await self.call_openrouter_api_async(
+                model="meta-llama/llama-3.1-70b-instruct",
+                messages=messages,
+                max_tokens=max_tokens
+            )
+
+            return response.choices[0].message.content
+        except Exception as e:
+            print(f"Error calling OpenRouter API: {str(e)}")
+            # Return the original content as fallback
+            # Extract the original content from the prompt
+            if "## Content to Personalize:" in prompt:
+                start_marker = "## Content to Personalize:\n"
+                start_idx = prompt.find(start_marker)
+                if start_idx != -1:
+                    start_idx += len(start_marker)
+                    original_content = prompt[start_idx:].strip()
+                    return original_content
+            elif "## Content to Translate:" in prompt:
+                start_marker = "## Content to Translate:\n"
+                start_idx = prompt.find(start_marker)
+                if start_idx != -1:
+                    start_idx += len(start_marker)
+                    original_content = prompt[start_idx:].strip()
+                    return original_content
+            else:
+                # If we can't extract original content, return a message
+                return "Content could not be processed. Please try again later."
+
+    async def generate_response_stream(self, prompt: str, max_tokens: int = 1500) -> AsyncGenerator[str, None]:
+        """Generate response using OpenRouter API with streaming and fallback"""
+        messages = [
+            {"role": "system", "content": "You are an expert assistant that helps with content adaptation and translation. Provide accurate, helpful responses while maintaining the quality and integrity of the original content."},
+            {"role": "user", "content": prompt}
+        ]
+
+        try:
+            response = await self.call_openrouter_api_async(
+                model="meta-llama/llama-3.1-70b-instruct",
+                messages=messages,
+                max_tokens=max_tokens,
+                stream=True
+            )
+
+            async for chunk in response:
+                if chunk.choices and chunk.choices[0].delta.content:
+                    yield chunk.choices[0].delta.content
+        except Exception as e:
+            print(f"Error calling OpenRouter API for streaming: {str(e)}")
+            # Return the original content as fallback if possible
+            if "## Content to Personalize:" in prompt:
+                start_marker = "## Content to Personalize:\n"
+                start_idx = prompt.find(start_marker)
+                if start_idx != -1:
+                    start_idx += len(start_marker)
+                    original_content = prompt[start_idx:].strip()
+                    yield original_content
+            elif "## Content to Translate:" in prompt:
+                start_marker = "## Content to Translate:\n"
+                start_idx = prompt.find(start_marker)
+                if start_idx != -1:
+                    start_idx += len(start_marker)
+                    original_content = prompt[start_idx:].strip()
+                    yield original_content
+            else:
+                yield "Content could not be processed. Please try again later."
