@@ -1,0 +1,29 @@
+
+> auth-service@1.0.0 dev
+> tsx watch src/index.ts
+
+Server running on port 3001
+Login error: SqliteError: UNIQUE constraint failed: sessions.id
+    at <anonymous> (/mnt/c/physical-ai-textbook/auth-service/src/routes/auth.ts:139:8)
+    at async dispatch (/mnt/c/physical-ai-textbook/auth-service/node_modules/hono/dist/cjs/compose.js:44:17)
+    at async validateLogin (/mnt/c/physical-ai-textbook/auth-service/src/middleware/validation.ts:106:5)
+    at async dispatch (/mnt/c/physical-ai-textbook/auth-service/node_modules/hono/dist/cjs/compose.js:44:17)
+    at async cors2 (/mnt/c/physical-ai-textbook/auth-service/node_modules/hono/dist/cjs/middleware/cors/index.js:101:5)
+    at async dispatch (/mnt/c/physical-ai-textbook/auth-service/node_modules/hono/dist/cjs/compose.js:44:17)
+    at async /mnt/c/physical-ai-textbook/auth-service/node_modules/hono/dist/cjs/hono-base.js:323:25
+    at async responseViaResponseObject (file:///mnt/c/physical-ai-textbook/auth-service/node_modules/@hono/node-server/dist/index.mjs:412:13)
+    at async Server.<anonymous> (file:///mnt/c/physical-ai-textbook/auth-service/node_modules/@hono/node-server/dist/index.mjs:551:14) {
+  code: 'SQLITE_CONSTRAINT_PRIMARYKEY'
+}
+Login error: SqliteError: UNIQUE constraint failed: sessions.id
+    at <anonymous> (/mnt/c/physical-ai-textbook/auth-service/src/routes/auth.ts:139:8)
+    at async dispatch (/mnt/c/physical-ai-textbook/auth-service/node_modules/hono/dist/cjs/compose.js:44:17)
+    at async validateLogin (/mnt/c/physical-ai-textbook/auth-service/src/middleware/validation.ts:106:5)
+    at async dispatch (/mnt/c/physical-ai-textbook/auth-service/node_modules/hono/dist/cjs/compose.js:44:17)
+    at async cors2 (/mnt/c/physical-ai-textbook/auth-service/node_modules/hono/dist/cjs/middleware/cors/index.js:101:5)
+    at async dispatch (/mnt/c/physical-ai-textbook/auth-service/node_modules/hono/dist/cjs/compose.js:44:17)
+    at async /mnt/c/physical-ai-textbook/auth-service/node_modules/hono/dist/cjs/hono-base.js:323:25
+    at async responseViaResponseObject (file:///mnt/c/physical-ai-textbook/auth-service/node_modules/@hono/node-server/dist/index.mjs:412:13)
+    at async Server.<anonymous> (file:///mnt/c/physical-ai-textbook/auth-service/node_modules/@hono/node-server/dist/index.mjs:551:14) {
+  code: 'SQLITE_CONSTRAINT_PRIMARYKEY'
+}

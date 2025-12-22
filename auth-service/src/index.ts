@@ -1,11 +1,21 @@
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 import authRoutes from './routes/auth';
+import { RegistrationData, LoginData, UpdateProfileData } from './models/user';
 
-const app = new Hono();
+// Define custom context variables interface
+export interface Variables {
+  validatedData: RegistrationData | LoginData | UpdateProfileData;
+  userId: string;
+}
 
-// Enable CORS
-app.use('*', cors());
+const app = new Hono<{ Variables: Variables }>();
+
+// Enable CORS with specific origin for credentials
+app.use('*', cors({
+  origin: ['http://localhost:3000'], // Docusaurus default port
+  credentials: true
+}));
 
 // Health check endpoint
 app.get('/', (c) => {
@@ -17,7 +27,7 @@ app.get('/health', (c) => {
   return c.json({ status: 'ok', service: 'auth' });
 });
 
-// Mount auth routes
+// Mount auth routes - these follow the API contract expected by the frontend
 app.route('/api/auth', authRoutes);
 
 // Error handling middleware

@@ -20,7 +20,7 @@ export type User = z.infer<typeof UserSchema>;
 export const RegistrationDataSchema = z.object({
   email: z.string().email(),
   name: z.string().min(1).max(100),
-  password: z.string().min(8), // At least 8 characters
+  password: z.string().min(8, 'Password must be at least 8 characters long'), // At least 8 characters
   software_background: z.enum(['Beginner', 'Intermediate', 'Advanced']),
   hardware_background: z.enum(['None', 'Arduino', 'RaspberryPi']),
   learning_goal: z.string().optional(),
@@ -31,7 +31,7 @@ export type RegistrationData = z.infer<typeof RegistrationDataSchema>;
 // Define the login data schema
 export const LoginDataSchema = z.object({
   email: z.string().email(),
-  password: z.string(),
+  password: z.string().min(8, 'Password must be at least 8 characters long'),
 });
 
 export type LoginData = z.infer<typeof LoginDataSchema>;
