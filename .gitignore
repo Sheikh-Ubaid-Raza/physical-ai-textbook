@@ -1,10 +1,41 @@
 # Dependencies
 /node_modules
+/venv
 /.venv
-_pycache_
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
 
 # Production
 /build
+
+# Database
+*.db
+*.db-journal
+
+# Security
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*$pyc.class
+.Python
+env/
+venv/
+.venv/
+.ENV
+.env.bak
 
 # Generated files
 .docusaurus
